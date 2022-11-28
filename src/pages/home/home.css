@@ -1,0 +1,8 @@
+.flex-canvas{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.flex-item{
+    flex-direction: column;
+}

@@ -3,23 +3,25 @@ import './submit-button.css'
 
 
 
-const SubmitButton = (props) => {
-    const [counter, setCounter] = useState(1)
+const trigger = (param, setEvent) => {
+    setEvent({
+        event:'trigger',
+        counter: param
+    })
+}
 
-    const trigger = () => {
-        setCounter(counter + 1)
-        props.setEvent({
-            event:'trigger',
-            counter: counter
-        })
-    }
 
+const SubmitButton = ({label, setEvent}) => {
+    
+    let [counter, setCounter] = useState(1)
+    
     return(
-        <div>
-            <button className="button" onClick={() => trigger}>
-                {props.label ? props.label : 'OK'}
-            </button>
-        </div>
+        <button className="button" onClick={() => {
+            setCounter(counter + 1)
+            trigger(counter, setEvent)
+        }}>
+            {label ? label : 'OK'}
+        </button>
     )
 }
 

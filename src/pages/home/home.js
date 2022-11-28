@@ -1,9 +1,13 @@
 import { useState } from 'react';
 import SubmitButton from '../../components/submit-button/submit-button';
+import GeneralButton from '../../components/general-button/general-button';
 import './home.css';
 
-
 const receiveMessage = (param) => {
+    console.log(param)
+}
+
+const receiveGeneralMessage = (param) => {
     console.log(param)
 }
 
@@ -27,8 +31,13 @@ const Home = (props) => {
                     {message.body}
                 </h3>
             </div>
-            <div>
-                <SubmitButton label='Hit Me!' setEvent={receiveMessage}></SubmitButton>
+            <div className='flex-canvas'>
+                <div className='flex-item'>
+                    <SubmitButton label='Hit Me!' setEvent={receiveMessage}></SubmitButton>
+                </div>
+                <div className='flex-item'>
+                    <GeneralButton label='Filter' setEvent={receiveGeneralMessage}></GeneralButton>
+                </div>
             </div>
         </div>
     )
