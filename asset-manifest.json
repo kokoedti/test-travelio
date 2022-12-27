@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/test-travelio/static/css/main.48c0380a.css",
+    "main.js": "/test-travelio/static/js/main.de173db0.js",
+    "static/js/787.28cb0dcd.chunk.js": "/test-travelio/static/js/787.28cb0dcd.chunk.js",
+    "index.html": "/test-travelio/index.html",
+    "main.48c0380a.css.map": "/test-travelio/static/css/main.48c0380a.css.map",
+    "main.de173db0.js.map": "/test-travelio/static/js/main.de173db0.js.map",
+    "787.28cb0dcd.chunk.js.map": "/test-travelio/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.48c0380a.css",
+    "static/js/main.de173db0.js"
+  ]
+}
