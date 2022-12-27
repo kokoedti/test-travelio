@@ -1,44 +1,46 @@
 import { useState } from 'react';
-import SubmitButton from '../../components/submit-button/submit-button';
-import GeneralButton from '../../components/general-button/general-button';
 import './home.css';
+import { getApi } from '../../services/api-get';
+import InputText from '../../components/input-text/input-text';
+import ItemCard from '../../components/item-card/item-card';
 
-const receiveMessage = (param) => {
-    console.log(param)
-}
 
-const receiveGeneralMessage = (param) => {
-    console.log(param)
-}
 
-const Home = (props) => {
+const Home = () => {
     const [message] = useState({
-        header: 'Hello',
-        subMessage: 'Welcome back my Lord!',
-        body: 'myLord'
+        header: 'Book Search',
     })
+
+    const [item, setItem] = useState([])
+
+    const callApi = (keyword) => {
+        getApi(keyword).then((res) => {
+            setItem([...res.data.items])
+            // console.log(item)
+        })
+    }
+
+    const receiveInput = (param) => {
+        callApi(param.value)
+    }
+
 
     return (
         <div className='App'>
             <div >
                 <h1>{message.header}</h1>
-                <h2>
-                    {message.subMessage}
-                </h2>
+                <InputText placeholder='Search!' setEvent={receiveInput}></InputText>
             </div>
-            <div >
-                <h3>
-                    {message.body}
-                </h3>
-            </div>
-            <div className='flex-canvas'>
-                <div className='flex-item'>
-                    <SubmitButton label='Hit Me!' setEvent={receiveMessage}></SubmitButton>
-                </div>
-                <div className='flex-item'>
-                    <GeneralButton label='Filter' setEvent={receiveGeneralMessage}></GeneralButton>
-                </div>
-            </div>
+            
+            {
+               item.length !== 0 && item.map((listItem, index) => {
+                    return  (
+                        <div className='item-row' key={index}>
+                            <ItemCard itemCard={listItem.volumeInfo}></ItemCard>
+                        </div>
+                    )
+                })
+            }
         </div>
     )
 }

@@ -1,0 +1,24 @@
+.item-canvas{
+    width: auto;
+    height: 100%;
+    min-height: 300px;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.image-canvas{
+    width: 100%;
+    height: 100%;
+    min-height: 150px;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.title-card{
+    text-align: left;
+}
+
+.content-card{
+    text-align: left
+}
